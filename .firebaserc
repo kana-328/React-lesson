@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "fhotte-app"
+    "default": "fhotte-app",
+    "no": "fhotte-app"
   }
 }
