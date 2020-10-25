@@ -18,8 +18,6 @@
     <script defer src="/__/firebase/7.24.0/firebase-firestore.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
-
-
   </head>
   <body>
     <div>
@@ -40,7 +38,6 @@
         db.collection("datas").doc("text").get().then(function(doc) {
           document.getElementById("sendtext-text").value=doc.data().vtext
         });
-      
       });
     </script>
   </body>
