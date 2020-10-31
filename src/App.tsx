@@ -5,6 +5,8 @@ import { db } from "./firebase"
 import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 import { TaskItem } from './TaskItem';
 import { makeStyles } from "@material-ui/styles"
+import "firebase/auth";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
   const useStyles = makeStyles({
     field: {
@@ -20,7 +22,7 @@ import { makeStyles } from "@material-ui/styles"
   const App: React.FC = () => {
     const [tasks, setTasks] = useState([{id: "", title:""}]);
     const [input, setInput] = useState("");
-    const classes = useStyles(); 
+    const classes = useStyles();
     useEffect(() => {
       const unSub = db.collection("tasks").onSnapshot((snapshot) => {
         setTasks(
