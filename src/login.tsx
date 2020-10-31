@@ -10,9 +10,10 @@ export const Login: React.FC = (props: any) => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(function(user) {
+    const unSub = firebase.auth().onAuthStateChanged(function(user) {
       user && props.history.push("/");
     });
+    return () => unSub();
   },[props.history]);
 
   return (
@@ -20,7 +21,7 @@ export const Login: React.FC = (props: any) => {
       <h1>{isLogin ? "Login" : "Register"}</h1>
       <br/>
       <FormControl>
-        <TextField>
+        <TextField
           InputLabelProps={{
             shrink: true,
           }}
@@ -30,8 +31,8 @@ export const Login: React.FC = (props: any) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setEmail(e.target.value);
           }}
-        </TextField>
-        <TextField>
+        />
+        <TextField
         InputLabelProps={{
             shrink: true,
           }}
@@ -42,7 +43,7 @@ export const Login: React.FC = (props: any) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setPassword(e.target.value);
           }}
-        </TextField>
+        />
       </FormControl>
       <br/>
       <Button variant="contained" color="primary" size="small" onClick={

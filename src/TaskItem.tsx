@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "firebase/app";
 import { ListItem, TextField, Grid } from "@material-ui/core";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
